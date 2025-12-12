@@ -9,4 +9,5 @@ export default defineConfig({
     globals: true,          // So you can use test(), expect() without importing
     setupFiles: "./setupTests.js",
   },
+  base:'/ci_cd_repository_react/',  // add repository name
 });

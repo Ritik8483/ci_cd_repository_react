@@ -134,3 +134,9 @@ jobs:
 
 #Upload and download artifacts(.dist folder i.e, asset generated) using actions/upload-artifact and actions/download-artifact
 # we use build so doen't need access code inside deploy
+
+#DEPLOYMENT search actions/deploy-pages and create a seperate workflow
+# Settings -> Pages 
+# Token Settings -> Secrets - >
+# Add repository name in vite config inside base and also add it in package.json file
+# base:'/ci_cd_repository_react/',  // add repository name in vite config
