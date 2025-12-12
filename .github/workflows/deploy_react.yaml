@@ -1,4 +1,4 @@
-name: Deploy Dist
+name: Deploy REACT PROJECTS
 on:                         #for ading filter
   push:
     branches:
