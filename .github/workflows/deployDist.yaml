@@ -37,17 +37,20 @@ jobs:
                 node-version: 20
             - name: print node version
               run: node -v
-            # - name: Cache Dependencies
-            #   uses: actions/cache@v4
-            #   with: 
-            #     path: ~/.npm
-            #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+            - name: Cache Dependencies
+              uses: actions/cache@v4
+              with: 
+                path: ~/.npm
+                key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
             - name: Install Dependencies
               run: npm ci 
             - name: Run Tests
               run: npm run test
 
     deploy:
+        needs: test                 #this will run after sucessful completion of test job
         runs-on: ubuntu-latest
         steps:
             - name: "Get Code"
@@ -56,8 +59,14 @@ jobs:
             - name: Install Node 20
               uses: actions/setup-node@v4
               with: 
-                node-version: 20
-            
+                node-version: 2
+                  
+            - name: Cache Dependencies
+              uses: actions/cache@v4
+              with: 
+                path: ~/.npm
+                key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
             - name: Install Dependencies
               run: npm ci 
 
@@ -69,3 +78,4 @@ jobs:
 
 
 #bydefault it runs both jobs in parallel we make them run sequentially using depends-on
+# search cache inside github market place for caching dependencies step
