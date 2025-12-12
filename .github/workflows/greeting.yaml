@@ -1,5 +1,5 @@
 name: Greeting
-on: push
+on: push                #it will trigger the workflow on push event only
 # on: workflow_dispatch
 jobs:
     greet:

@@ -1,0 +1,21 @@
+name: Deploy Dist
+on: [push,workflow_dispatch]      # it will trigger the workflow on push event and also can be triggered manually
+# on:                               #both are same(used for array of object)
+#     -push
+#     -workflow_dispatch
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Get Code"
+              run: 
+                echo "cloning repo..."
+                echo "${{toJson(github)}}"
+                git clone https://github.com/${{github.repository}}.git
+
+# 
+# to see the github context details
+# cloning the current repository using github context    
+# https://github.com/Ritik8483/ci_cd_repository_react.git
+
+
