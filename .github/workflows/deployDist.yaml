@@ -59,7 +59,7 @@ jobs:
             - name: Install Node 20
               uses: actions/setup-node@v4
               with: 
-                node-version: 2
+                node-version: 20
                   
             - name: Cache Dependencies
               uses: actions/cache@v4
